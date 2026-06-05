@@ -457,5 +457,239 @@
     "drink": "ホンジュラス",
     "price": 650,
     "comment": ""
+  },
+  {
+    "name": "純喫茶パインツリー（熱海）",
+    "lat": 35.096659099821, 
+    "lng": 139.07380910615822,
+    "date": "2025-01-12",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "コーヒー高久（人形町）",
+    "lat": 35.684909313472026, 
+    "lng": 139.78335659490577,
+    "date": "2025-01-13",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "Light Up Coffee（下北沢）",
+    "lat": 35.65819,
+    "lng": 139.66257,
+    "date": "2025-02-19",
+    "drink": "ケニア グアマ",
+    "price": 300,
+    "comment": ""
+  },
+  {
+    "name": "Look Up Coffee（下北沢）",
+    "lat": 35.663807914274706, 
+    "lng": 139.66757655194905,
+    "date": "2025-03-16",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "Rays Coffee（日立）",
+    "lat": 36.59260812212272, 
+    "lng": 140.66172809140843,
+    "date": "2025-03-30",
+    "drink": "エチオピア イルガチェフェ",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "Light Up Coffee（下北沢）",
+    "lat": 35.65819,
+    "lng": 139.66257,
+    "date": "2025-04-06",
+    "drink": "ルワンダ キリンビ",
+    "price": 300,
+    "comment": ""
+  },
+  {
+    "name": "洋菓子・喫茶ボンボン（高岳）",
+    "lat": 35.17758933218836, 
+    "lng": 136.9143869741013,
+    "date": "2025-04-29",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "Lima Coffee（みなと元町）",
+    "lat": 34.686034341394354, 
+    "lng": 135.18559815875255,
+    "date": "2025-05-03",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "にしむら珈琲店（三ノ宮）",
+    "lat": 34.695106313619604, 
+    "lng": 135.19434702805017,
+    "date": "2025-05-04",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "NITO Coffee&Craft Beer（北新地）",
+    "lat": 34.69700816036251, 
+    "lng": 135.4938322295071,
+    "date": "2025-05-04",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "HORAIYA（原宿）",
+    "lat": 35.673289886093514, 
+    "lng": 139.7100531529178,
+    "date": "2025-05-05",
+    "drink": "エチオピア",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "Light Up Coffee（下北沢）",
+    "lat": 35.65819,
+    "lng": 139.66257,
+    "date": "2025-05-06",
+    "drink": "コスタリカ ラエレ",
+    "price": 300,
+    "comment": ""
+  },
+  {
+    "name": "NAGI COFFEE（反町）",
+    "lat": 35.47590057946473, 
+    "lng": 139.62157799803097,
+    "date": "2025-05-11",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "TRIBE COFFEE（つくば）",
+    "lat": 36.075028770992525, 
+    "lng": 140.11204833003583,
+    "date": "2025-05-15",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "つくば焙煎SILKHAT（つくば）",
+    "lat": 36.07999137873499, 
+    "lng": 140.12452377135935,
+    "date": "2025-05-18",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "YATABE COFFEE（万博記念公園）",
+    "lat": 36.045696843963604, 
+    "lng": 140.05761509740867,
+    "date": "2025-06-05",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "Light Up Coffee（三鷹）",
+    "lat": 35.683572283012964, 
+    "lng": 139.56112385400104,  
+    "date": "2025-06-07",
+    "drink": "ボリビア リコマ",
+    "price": 300,
+    "comment": ""
+  },
+  {
+    "name": "どんぐり舎（西荻窪）",
+    "lat": 35.7054885469272, 
+    "lng": 139.60020828550003,
+    "date": "2025-06-08",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "CONZEN COFFEE（町田）",
+    "lat": 35.577898679232916, 
+    "lng": 139.42641350369405,
+    "date": "2025-06-08",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "IRON COFFEE（豪徳寺）",
+    "lat": 35.65207026995464, 
+    "lng": 139.64667709110236,
+    "date": "2025-06-15",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "cox（つくば）",
+    "lat": 36.07364828544621, 
+    "lng": 140.10999443367206,
+    "date": "2025-06-28",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "Light Up Coffee（下北沢）",
+    "lat": 35.65819,
+    "lng": 139.66257,
+    "date": "2025-07-04",
+    "drink": "ケニア",
+    "price": 300,
+    "comment": ""
+  },
+  {
+    "name": "Bridge COFFEE & ICECREAM（馬喰町）",
+    "lat": 35.69476573058053, 
+    "lng": 139.7839218244977,
+    "date": "2025-07-06",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "Light Up Coffee（下北沢）",
+    "lat": 35.65819,
+    "lng": 139.66257,
+    "date": "2025-07-07",
+    "drink": "(TAKE OUT)",
+    "price": 300,
+    "comment": ""
+  },
+  {
+    "name": "キママナコーヒー（津田沼）",
+    "lat": 35.693370311416494, 
+    "lng": 140.02347848116008,
+    "date": "2025-07-12",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "Philocoffea（京成大久保）",
+    "lat": 35.68527556163792, 
+    "lng": 140.04734664682624,
+    "date": "2025-07-13",
+    "drink": "",
+    "price": null,
+    "comment": ""
   }
 ]
