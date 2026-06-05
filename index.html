@@ -7,21 +7,24 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
     
     <style>
         body { 
             margin: 0; 
             padding: 0; 
             font-family: 'Zen Kaku Gothic New', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #000; 
-            color: white;
+            background-color: #0d0d11; 
+            color: #ffffff;
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            padding: 40px 20px;
         }
 
-        /* 玄関全体の背景画像 */
+        /* 玄関全体の背景画像（維持） */
         .portal-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -31,119 +34,129 @@
             z-index: -2;
         }
 
+        /* 背景をより深く落とし込むオーバーレイ */
         .portal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.85) 100%);
+            background: linear-gradient(135deg, rgba(13, 13, 17, 0.85) 0%, rgba(13, 13, 17, 0.95) 100%);
             z-index: -1;
         }
 
-        header {
-            /* 上・左右・下の余白を調整 */
-            padding: calc(150px + env(safe-area-inset-top)) 5% 30px;
-            text-align: center; /* ★ここを center から left に変更すると左寄せになります */
-            max-width: 1200px; /* カードの幅と合わせる */
-            margin: 0 auto;
+        /* 全体を中央にキュッとまとめるコンパクトなコンテナ */
+        .main-container {
+            max-width: 480px;
             width: 100%;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 32px;
+            padding: 40px 35px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
             box-sizing: border-box;
         }
 
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
         header h1 {
-            margin: 0; font-size: 48px; font-weight: 700;
-            letter-spacing: 6px; text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+            margin: 0; 
+            font-size: 32px; 
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #ffffff;
         }
 
         header p {
-            margin: 15px 0 0 0; 
-            font-family: "Zen Kaku Gothic New", serif;
-            font-size: 15px;  
-            opacity: 0.8;
-            letter-spacing: 2px; text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+            margin: 10px 0 0 0; 
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 16px;  
+            font-style: normal; /* イタリックを解除 */
+            opacity: 0.5;
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
 
-        .card-container {
-            flex: 1;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 320px));
-            gap: 30px;
-            padding: 20px;
-            justify-content: center;
-            align-content: center;
-            max-width: 1200px;
-            margin: 0 auto 60px;
+        /* ==========================================
+           ★ 著者紹介（プロフィール）セクション
+           ========================================== */
+        .profile-section {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 25px 5px;
+            margin-bottom: 35px;
         }
 
-        /* ★ 絵文字アイコンを排除し、写真カード用のスタイルに変更 */
-        .image-card {
-            position: relative;
-            border-radius: 24px;
-            padding: 40px 30px 30px 30px;
-            text-align: center;
-            text-decoration: none; 
-            color: white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            /* ぬめっとした極上のモーション */
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        .profile-text {
+            font-size: 13px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.75);
+            margin: 0;
+            text-align: justify;
+        }
+
+        /* ==========================================
+           ★ 各コンテンツへのミニマルなナビゲーション
+           ========================================== */
+        .nav-links {
             display: flex;
             flex-direction: column;
-            justify-content: flex-end; /* 文字をカードの下の方に配置 */
-            min-height: 280px; /* カードの高さを少し大きくして写真を見せる */
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            gap: 14px;
         }
 
-        .image-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.3);
+        /* 写真を排除した、ソリッドでコンパクトなバー型のリンク */
+        .minimal-link {
+            position: relative;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 18px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-decoration: none;
+            color: #ffffff;
+            /* ぬめっとした慣性のある手触り */
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .image-card:active {
-            transform: translateY(0) scale(0.98);
-            transition: all 0.1s;
+        .link-title {
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 1px;
         }
 
-        /* * ★ 各カード個別の背景画像設定
-         * linear-gradient(…) を重ねることで、写真の下半分だけを暗くして文字を読みやすくしています。
-         * url('...') の中身をご自身のローカル画像のファイル名（例: 'coffee-bg.jpg'）に変更してください！
-         */
-        .card-coffee {
-            background-image: linear-gradient(to bottom, rgba(0,0,0,0.1) 30%, rgba(0,0,0,0.8) 100%), url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=800&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
+        /* 右側の矢印インジケーター */
+        .link-arrow {
+            font-size: 12px;
+            opacity: 0.3;
+            transform: translateX(0);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .card-machichuka {
-            background-image: linear-gradient(to bottom, rgba(0,0,0,0.1) 30%, rgba(0,0,0,0.8) 100%), url('https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=800&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
+        /* ホバー時の美しいリアクション */
+        .minimal-link:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
-        .card-hiking {
-            background-image: linear-gradient(to bottom, rgba(0,0,0,0.1) 30%, rgba(0,0,0,0.8) 100%), url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
+        .minimal-link:hover .link-arrow {
+            opacity: 0.8;
+            transform: translateX(4px); /* 矢印が右にすっと動く */
         }
 
-        /* 文字のデザイン調整 */
-        .card-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin: 0 0 8px 0;
-            letter-spacing: 2px;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+        .minimal-link:active {
+            transform: scale(0.98);
+            background: rgba(255, 255, 255, 0.02);
         }
 
-        .card-desc {
-            font-size: 13px;
-            opacity: 0.9;
-            margin: 0;
-            line-height: 1.6;
-            text-shadow: 0 1px 4px rgba(0,0,0,0.8);
-        }
-
-        @media (max-width: 768px) {
-            header h1 { font-size: 36px; }
-            .card-container { gap: 20px; grid-template-columns: 1fr; max-width: 360px; }
-            .image-card { min-height: 220px; padding: 30px 20px 20px 20px; }
+        @media (max-width: 480px) {
+            body { padding: 20px 15px; }
+            .main-container { padding: 30px 20px; }
+            header h1 { font-size: 26px; }
         }
     </style>
 </head>
@@ -152,26 +165,34 @@
     <div class="portal-bg"></div>
     <div class="portal-overlay"></div>
 
-    <header>
-        <h1>ぼくの偏愛図鑑</h1>
-        <p>偏愛が偏愛を呼ぶ人生</p>
-    </header>
+    <div class="main-container">
+        <header>
+            <h1>ぼくの偏愛図鑑</h1>
+            <p>Exploration & Records</p>
+        </header>
 
-    <div class="card-container">
-        <a href="coffee.html" class="image-card card-coffee">
-            <h2 class="card-title">偏愛コーヒー図鑑</h2>
-            <!-- <p class="card-desc">開拓したロースタリーや<br>カフェの記録と評価</p> -->
-        </a>
+        <div class="profile-section">
+            <p class="profile-text">
+                カメラメーカーでユーザーインターフェース（UI）の開発に携わるシステムソフトウェア開発者。休日は愛用のカメラやOsmo Pocket 3を手に取り、全国のこだわりのロースタリーやカフェを巡るデジタルログの構築を進めています。また、日光白根や阿蘇、雲仙といった美しい稜線を持つ山々を歩くこともライフワークの1つであり、旅先で紡いだ写真や映像、エッセイなどの記録をこの場所に集約しています。日々のBGMには、あいみょんとスピッツを。
+            </p>
+        </div>
 
-        <a href="machichuka.html" class="image-card card-machichuka">
-            <h2 class="card-title">偏愛町中華図鑑</h2>
-            <!-- <p class="card-desc">絶品の炒飯と餃子を求めて<br>街角の老舗を巡る記録</p> -->
-        </a>
+        <nav class="nav-links">
+            <a href="coffee.html" class="minimal-link">
+                <span class="link-title">偏愛コーヒー図鑑</span>
+                <span class="link-arrow">→</span>
+            </a>
 
-        <a href="hiking.html" class="image-card card-hiking">
-            <h2 class="card-title">偏愛登山図鑑</h2>
-            <!-- <p class="card-desc">登頂した山々のルートと<br>絶景撮影スポットの足跡</p> -->
-        </a>
+            <a href="machichuka.html" class="minimal-link">
+                <span class="link-title">偏愛町中華図鑑</span>
+                <span class="link-arrow">→</span>
+            </a>
+
+            <a href="hiking.html" class="minimal-link">
+                <span class="link-title">偏愛登山図鑑</span>
+                <span class="link-arrow">→</span>
+            </a>
+        </nav>
     </div>
 
 </body>
