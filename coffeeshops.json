@@ -691,5 +691,23 @@
     "drink": "",
     "price": null,
     "comment": ""
+  },
+  {
+    "name": "BELL COFFEE ROASTERS（佐野）",
+    "lat": 36.31337759583649, 
+    "lng": 139.58281239819598,
+    "date": "2025-06-05",
+    "drink": "ブラジル エドゥアルド カンポ",
+    "price": 605,
+    "comment": "イエローブルボンのパルプドナチュラル製法。外観から内装まで全部好き。"
+  },
+  {
+    "name": "COFFEE AND DONUTS FIVE（佐野）",
+    "lat": 36.315684982232455, 
+    "lng": 139.5762786512005,
+    "date": "2025-06-05",
+    "drink": "エチオピア ゴマ",
+    "price": 660,
+    "comment": "BELL COFFEE ROASTERSの姉妹店。"
   }
 ]
