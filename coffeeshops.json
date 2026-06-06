@@ -6,7 +6,9 @@
     "date": "2023-09-24",
     "drink": "エチオピア",
     "price": 300,
-    "comment": ""
+    "comment": "",
+    "column" : "ShopColumn/lightup_kitijyoji.html"
+
   },
   {
     "name": "Light Up Coffee（下北沢）",
@@ -348,7 +350,8 @@
     "date": "2026-04-29",
     "drink": "コスタリカ",
     "price": 600,
-    "comment": ""
+    "comment": "",
+    "column" : "ShopColumn/slowjetcoffee.html"
   },
   {
     "name": "LUSH-COFFEE ROASTER（北千住）",
@@ -861,7 +864,8 @@
     "date": "2025-09-02",
     "drink": "",
     "price": null,
-    "comment": ""
+    "comment": "",
+    "column" : "ShopColumn/baristartcoffee.html"
   },
   {
     "name": "Rain coffee stand（大通り）",
@@ -870,7 +874,8 @@
     "date": "2025-09-03",
     "drink": "",
     "price": null,
-    "comment": ""
+    "comment": "",
+    "column" : "ShopColumn/raincoffeestand.html"
   },
   {
     "name": "Coffee House CHAFF（小樽）",
@@ -879,7 +884,8 @@
     "date": "2025-09-04",
     "drink": "",
     "price": null,
-    "comment": ""
+    "comment": "",
+    "column" : "ShopColumn/coffeehousechaff.html"
   },
   {
     "name": "ゆうぐれぐも（）",
