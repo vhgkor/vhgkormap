@@ -28,6 +28,9 @@
             background: linear-gradient(to bottom, rgba(252,252,253,1) 0%, rgba(252,252,253,0) 100%);
             z-index: 1000;
             box-sizing: border-box;
+            display: flex;      /* ★ 追加：ボタンを横に並べる */
+            gap: 12px;          /* ★ 追加：ボタンとボタンの隙間 */
+            flex-wrap: wrap;    /* ★ 追加：画面が狭い場合は折り返す */
         }
 
         .back-btn {
@@ -150,11 +153,18 @@
 <body>
 
     <nav class="top-nav">
-        <a href="../coffee.html" class="back-btn">
+        <a href="../columns.html" class="back-btn" title="コラム一覧へ">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z" fill="#8B4513"/>
+            </svg>
+            コラム一覧
+        </a>
+
+        <a href="../coffee.html" class="back-btn" title="マップへ戻る">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
                 <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" fill="#8B4513"/>
             </svg>
-            マップへ戻る
+            マップ
         </a>
     </nav>
 
