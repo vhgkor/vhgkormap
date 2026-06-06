@@ -91,11 +91,31 @@
 
         .column-item:active { transform: scale(0.98); }
 
+        /* ★ 追加：カテゴリバッジと日付を並べる行 */
+        .item-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        /* ★ 追加：カテゴリバッジのデザイン */
+        .category-badge {
+            font-size: 10px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 12px;
+            letter-spacing: 1px;
+        }
+
+        .badge-coffee { background: rgba(139, 69, 19, 0.2); color: #d7ccc8; }
+        .badge-machichuka { background: rgba(211, 47, 47, 0.2); color: #ffcdd2; }
+        .badge-hiking { background: rgba(46, 125, 50, 0.2); color: #c8e6c9; }
+
         .item-date {
             font-family: 'Cormorant Garamond', serif;
             font-size: 14px;
             color: rgba(255, 255, 255, 0.5);
-            margin-bottom: 8px;
             letter-spacing: 1px;
         }
 
@@ -126,7 +146,6 @@
             transform: translateX(0);
         }
 
-        /* 読み込み中や空の時のメッセージ */
         .empty-message {
             color: rgba(255, 255, 255, 0.4);
             font-size: 14px;
@@ -163,48 +182,63 @@
     </div>
 
     <script>
-        // coffeeshops.jsonを読み込んで、コラムがあるお店だけを抽出するスクリプト
-        fetch('coffeeshops.json')
-            .then(response => response.json())
-            .then(data => {
-                const listContainer = document.getElementById('column-list');
-                listContainer.innerHTML = ''; // 読み込みメッセージを消去
+        // ★ 変更：複数のJSONファイルを同時に読み込む Promise.all を使用
+        // ※登山 (hiking.json など) が増えたら、ここに追記するだけでOKです
+        Promise.all([
+            // 1. コーヒーデータの取得（失敗した場合は空配列を返す）
+            fetch('coffeeshops.json').then(res => res.ok ? res.json() : []).catch(() => []),
+            // 2. 町中華データの取得（失敗した場合は空配列を返す）
+            fetch('machichukashops.json').then(res => res.ok ? res.json() : []).catch(() => [])
+        ])
+        .then(([coffeeData, machichukaData]) => {
+            const listContainer = document.getElementById('column-list');
+            listContainer.innerHTML = ''; 
 
-                // "column" のURLデータを持っているお店だけを抽出（フィルター）
-                const columns = data.filter(item => item.column);
+            // コラム情報があるものだけを抽出し、カテゴリの目印をつけて配列を作成
+            const coffeeColumns = coffeeData
+                .filter(item => item.column)
+                .map(item => ({ ...item, categoryName: 'COFFEE', categoryClass: 'badge-coffee' }));
 
-                // 日付が新しい順（降順）に並び替え
-                columns.sort((a, b) => new Date(b.date) - new Date(a.date));
+            const machichukaColumns = machichukaData
+                .filter(item => item.column)
+                .map(item => ({ ...item, categoryName: '町中華', categoryClass: 'badge-machichuka' }));
 
-                // コラムが1つもない場合
-                if (columns.length === 0) {
-                    listContainer.innerHTML = '<div class="empty-message">まだ執筆されたコラムはありません。</div>';
-                    return;
-                }
+            // すべてのコラムを1つの配列に合体させる
+            const allColumns = [...coffeeColumns, ...machichukaColumns];
 
-                // コラムの数だけカードを自動生成
-                columns.forEach(item => {
-                    const card = document.createElement('a');
-                    card.href = item.column; // JSONに書かれたURLにリンク
-                    card.className = 'column-item';
-                    
-                    // 日付のハイフンを美しいドット区切りに変換（例: 2026-04-05 → 2026.04.05）
-                    const formattedDate = item.date.replace(/-/g, '.');
+            // 日付が新しい順（降順）に並び替え（コーヒーと町中華が時系列でミックスされる）
+            allColumns.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-                    card.innerHTML = `
-                        <div class="item-date">${formattedDate}</div>
-                        <div class="item-title-row">
-                            <h2 class="item-title">${item.name}</h2>
-                            <span class="item-arrow">→</span>
-                        </div>
-                    `;
-                    listContainer.appendChild(card);
-                });
-            })
-            .catch(error => {
-                console.error('データの読み込みに失敗しました:', error);
-                document.getElementById('column-list').innerHTML = '<div class="empty-message">データの読み込みに失敗しました。</div>';
+            if (allColumns.length === 0) {
+                listContainer.innerHTML = '<div class="empty-message">まだ執筆されたコラムはありません。</div>';
+                return;
+            }
+
+            allColumns.forEach(item => {
+                const card = document.createElement('a');
+                card.href = item.column; 
+                card.className = 'column-item';
+                
+                const formattedDate = item.date.replace(/-/g, '.');
+
+                // ★ カテゴリバッジを追加したHTML構造
+                card.innerHTML = `
+                    <div class="item-meta">
+                        <span class="category-badge ${item.categoryClass}">${item.categoryName}</span>
+                        <span class="item-date">${formattedDate}</span>
+                    </div>
+                    <div class="item-title-row">
+                        <h2 class="item-title">${item.name}</h2>
+                        <span class="item-arrow">→</span>
+                    </div>
+                `;
+                listContainer.appendChild(card);
             });
+        })
+        .catch(error => {
+            console.error('データの読み込みに失敗しました:', error);
+            document.getElementById('column-list').innerHTML = '<div class="empty-message">データの読み込みに失敗しました。</div>';
+        });
     </script>
 </body>
 </html>
