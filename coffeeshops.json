@@ -709,5 +709,311 @@
     "drink": "エチオピア ゴマ",
     "price": 660,
     "comment": "BELL COFFEE ROASTERSの姉妹店。"
+  },
+  {
+    "name": "中珈琲 ataru coffee resort（町田）",
+    "lat": 35.54233855627214, 
+    "lng": 139.4512178930059,
+    "date": "2025-07-18",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "名曲喫茶ライオン（渋谷）",
+    "lat": 35.659300646972355, 
+    "lng": 139.69639284569084,
+    "date": "2025-07-20",
+    "drink": "",
+    "price":  null,
+    "comment": ""
+  },
+  {
+    "name": "BLUE SIX COFFEE（国立競技場）",
+    "lat": 35.67541611095981, 
+    "lng": 139.71419373774506,
+    "date": "2025-07-31",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "Sedai Coffee & Roasters（原宿）",
+    "lat": 35.664298041052206, 
+    "lng": 139.70308078628622,
+    "date": "2025-07-31",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "WASHI no COFFEE（みどりの）",
+    "lat": 36.01354537374637, 
+    "lng": 140.07032493373214,
+    "date": "2025-08-03",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "珈琲舎ロッセ（町田）",
+    "lat": 35.54151037842751,
+    "lng": 139.44806545782663,
+    "date": "2025-08-15",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "洋菓子・喫茶ボンボン（高岳）",
+    "lat": 35.17758933218836, 
+    "lng": 136.9143869741013,
+    "date": "2025-08-16",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "AOI CELESTIE COFFEE ROASTERY（新栄町）",
+    "lat": 35.1709146989537, 
+    "lng": 136.91903113439196,
+    "date": "2025-08-16",
+    "drink": "ブラジル",
+    "price": 500,
+    "comment": ""
+  },
+  {
+    "name": "モーニング喫茶 リヨン（名古屋）",
+    "lat": 35.16745859054719, 
+    "lng": 136.88571138495658,
+    "date": "2025-08-17",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "Q.O.L. COFFE BREWERS（矢場町）",
+    "lat": 35.16349016530876, 
+    "lng": 136.90760082373896,
+    "date": "2025-08-17",
+    "drink": "パプアニューギニア",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "西原珈琲店（栄）",
+    "lat": 35.17088943956869, 
+    "lng": 136.90723241658583,
+    "date": "2025-08-17",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "珈琲屋カラス（伏見）",
+    "lat": 35.16605025832279, 
+    "lng": 136.8968119831866,
+    "date": "2025-08-18",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "コンパル御器所店（御器所）",
+    "lat": 35.14989073313627, 
+    "lng": 136.93088576439928,
+    "date": "2025-08-18",
+    "drink": "",
+    "price": null,
+    "comment": "アイスコーヒーを注文すると、氷の入ったグラスとコーヒーが別々に提供される。"
+  },
+  {
+    "name": "TRUNK COFFEE（高岳）",
+    "lat": 35.174452628492894,
+    "lng": 136.915373035564,
+    "date": "2025-08-20",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "PADDLERS COFFEE（幡ヶ谷）",
+    "lat": 35.674720406796986, 
+    "lng": 139.67872668470253,
+    "date": "2025-08-23",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "COFFEE FACTORY つくば本店（つくば）",
+    "lat": 36.062756428902446, 
+    "lng": 140.12395459043134,
+    "date": "2025-08-31",
+    "drink": "エチオピア イルガチェフェ",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "BARISTART COFFEE（大通）",
+    "lat": 43.058312130710085, 
+    "lng": 141.3513265326879,
+    "date": "2025-09-02",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "Rain coffee stand（大通り）",
+    "lat": 43.057574447249316, 
+    "lng": 141.35316606547175,
+    "date": "2025-09-03",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "Coffee House CHAFF（小樽）",
+    "lat": 43.20017089749808, 
+    "lng": 140.99678591333085,
+    "date": "2025-09-04",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "ゆうぐれぐも（）",
+    "lat": 40.50897030260224, 
+    "lng": 141.48901642496875,
+    "date": "2025-09-14",
+    "drink": "",
+    "price": null,
+    "comment": "位置情報は当時のもの。現在は移転されているらしい。"
+  },
+  {
+    "name": "喫茶マロン（青森）",
+    "lat": 40.82712989399346, 
+    "lng": 140.74153142099067,
+    "date": "2025-09-15",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "MIA COFFEE ROASTERS（青森）",
+    "lat": 40.826238268372606, 
+    "lng": 140.73785103332915,
+    "date": "2025-09-15",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "Light Up Coffee（下北沢）",
+    "lat": 35.65819,
+    "lng": 139.66257,
+    "date": "2025-09-29",
+    "drink": "コスタリカ ラリア",
+    "price": 300,
+    "comment": ""
+  },
+  {
+    "name": "CHOP COFFEE CAT STREET（原宿）",
+    "lat": 35.66684095003313, 
+    "lng": 139.70644135311423,
+    "date": "2025-10-19",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "FUGLEN HANEGIKOEN（梅ヶ丘）",
+    "lat": 35.65675621708575, 
+    "lng": 139.6548180477669,
+    "date": "2025-10-26",
+    "drink": "",
+    "price": 450,
+    "comment": ""
+  },
+  {
+    "name": "Light Up Coffee（下北沢）",
+    "lat": 35.65819,
+    "lng": 139.66257,
+    "date": "2025-10-27",
+    "drink": "エチオピア グジ",
+    "price": 300,
+    "comment": ""
+  },
+  {
+    "name": "COFFEE FACTORY つくば本店（つくば）",
+    "lat": 36.062756428902446, 
+    "lng": 140.12395459043134,
+    "date": "2025-11-03",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "Light Up Coffee（下北沢）",
+    "lat": 35.65819,
+    "lng": 139.66257,
+    "date": "2025-11-14",
+    "drink": "エチオピア バトゥーロ",
+    "price": 300,
+    "comment": ""
+  },
+  {
+    "name": "FUGLEN HANEGIKOEN（梅ヶ丘）",
+    "lat": 35.65675621708575, 
+    "lng": 139.6548180477669,
+    "date": "2025-11-16",
+    "drink": "",
+    "price": 450,
+    "comment": ""
+  },
+  {
+    "name": "Pati coffee plants（池ノ上）",
+    "lat": 35.65331776944978, 
+    "lng": 139.6720918127206,
+    "date": "2025-12-06",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "Autumn（桜新町）",
+    "lat": 35.63596104352909, 
+    "lng": 139.64002476729488,
+    "date": "2025-12-07",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "Z/X COFFEE（新栄）",
+    "lat": 35.16971743399435, 
+    "lng": 136.92166469713084,
+    "date": "2025-12-30",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "WEEKENDERS COFFEE All Right（神楽坂）",
+    "lat": 35.70411195028063, 
+    "lng": 139.73351544945422,
+    "date": "2025-12-13",
+    "drink": "",
+    "price": null,
+    "comment": ""
+  },
+  {
+    "name": "ファミリー喫茶 フレンド（車道）",
+    "lat": 35.17702118833406, 
+    "lng": 136.92815521168274,
+    "date": "2025-12-31",
+    "drink": "",
+    "price": null,
+    "comment": ""
   }
 ]
