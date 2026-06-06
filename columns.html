@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>偏愛コラム録 | My Life Logs</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { 
+            margin: 0; 
+            padding: calc(40px + env(safe-area-inset-top)) 20px 60px; 
+            font-family: 'Zen Kaku Gothic New', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #0d0d11; 
+            color: #ffffff;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        /* 戻るボタン */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 40px;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .back-btn:hover {
+            color: #ffffff;
+            transform: translateX(-4px);
+        }
+
+        /* ヘッダー周り */
+        header { margin-bottom: 40px; }
+        
+        h1 {
+            margin: 0 0 8px 0; 
+            font-size: 32px; 
+            font-weight: 700;
+            letter-spacing: 4px;
+        }
+
+        p.sub-title {
+            margin: 0; 
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 15px;  
+            opacity: 0.5;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* コラムリストのスタイリング */
+        .column-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .column-item {
+            display: block;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 24px 28px;
+            text-decoration: none;
+            color: #ffffff;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .column-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .column-item:active { transform: scale(0.98); }
+
+        .item-date {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .item-title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .item-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: 1px;
+            line-height: 1.4;
+        }
+
+        .item-arrow {
+            font-size: 14px;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .column-item:hover .item-arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* 読み込み中や空の時のメッセージ */
+        .empty-message {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 14px;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 30px 15px 50px; }
+            h1 { font-size: 26px; }
+            .column-item { padding: 20px; }
+            .item-title { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html" class="back-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" fill="currentColor"/>
+            </svg>
+            Home
+        </a>
+
+        <header>
+            <h1>偏愛コラム録</h1>
+            <p class="sub-title">Essays & Records</p>
+        </header>
+
+        <div class="column-list" id="column-list">
+            <div class="empty-message">データを読み込んでいます...</div>
+        </div>
+    </div>
+
+    <script>
+        // coffeeshops.jsonを読み込んで、コラムがあるお店だけを抽出するスクリプト
+        fetch('coffeeshops.json')
+            .then(response => response.json())
+            .then(data => {
+                const listContainer = document.getElementById('column-list');
+                listContainer.innerHTML = ''; // 読み込みメッセージを消去
+
+                // "column" のURLデータを持っているお店だけを抽出（フィルター）
+                const columns = data.filter(item => item.column);
+
+                // 日付が新しい順（降順）に並び替え
+                columns.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+                // コラムが1つもない場合
+                if (columns.length === 0) {
+                    listContainer.innerHTML = '<div class="empty-message">まだ執筆されたコラムはありません。</div>';
+                    return;
+                }
+
+                // コラムの数だけカードを自動生成
+                columns.forEach(item => {
+                    const card = document.createElement('a');
+                    card.href = item.column; // JSONに書かれたURLにリンク
+                    card.className = 'column-item';
+                    
+                    // 日付のハイフンを美しいドット区切りに変換（例: 2026-04-05 → 2026.04.05）
+                    const formattedDate = item.date.replace(/-/g, '.');
+
+                    card.innerHTML = `
+                        <div class="item-date">${formattedDate}</div>
+                        <div class="item-title-row">
+                            <h2 class="item-title">${item.name}</h2>
+                            <span class="item-arrow">→</span>
+                        </div>
+                    `;
+                    listContainer.appendChild(card);
+                });
+            })
+            .catch(error => {
+                console.error('データの読み込みに失敗しました:', error);
+                document.getElementById('column-list').innerHTML = '<div class="empty-message">データの読み込みに失敗しました。</div>';
+            });
+    </script>
+</body>
+</html>
