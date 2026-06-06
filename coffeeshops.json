@@ -960,7 +960,8 @@
     "date": "2025-11-14",
     "drink": "エチオピア バトゥーロ",
     "price": 300,
-    "comment": ""
+    "comment": "",
+    "column" : "ShopColumn/lightup_shimokita.html"
   },
   {
     "name": "FUGLEN HANEGIKOEN（梅ヶ丘）",

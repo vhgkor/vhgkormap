@@ -108,13 +108,28 @@
         .list-item { background-color: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 16px; margin-bottom: 12px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 1); box-shadow: 0 2px 8px rgba(0,0,0,0.03); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s, background-color 0.2s; }
         .list-item:hover { background-color: rgba(255, 255, 255, 1); transform: translateY(-3px) scale(1.02); box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
         .list-date { font-size: 12px; color: #888; }
-        .list-name { font-size: 15px; font-weight: 700; color: #333; }
+        .list-name { font-size: 15px; font-weight: 700; color: #333; display: flex; align-items: center; gap: 4px; }
         .badge { background-color: #e74c3c; color: white; font-size: 10px; padding: 2px 8px; border-radius: 12px; margin-left: 8px; font-weight: 700; box-shadow: 0 2px 4px rgba(231, 76, 60, 0.3); }
 
         .leaflet-popup-content-wrapper { border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); font-family: 'Zen Kaku Gothic New', sans-serif; }
         .popup-history { max-height: 150px; overflow-y: auto; margin-top: 10px; padding-right: 5px; border-top: 1px solid #eee; padding-top: 10px; }
         .history-item { margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed #eee; }
         .history-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        
+        /* コラムへ飛ぶリンクボタンの装飾 */
+        .column-link-btn {
+            display: inline-block;
+            background: #8B4513;
+            color: white !important;
+            padding: 8px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(139, 69, 19, 0.3);
+            transition: transform 0.2s;
+        }
+        .column-link-btn:hover { transform: scale(1.05); }
 
         #toggle-list-btn { display: none; }
 
@@ -287,7 +302,12 @@
 
             filteredFlatData.forEach(function(item) {
                 if (!groupedShops[item.name]) {
-                    groupedShops[item.name] = { name: item.name, lat: item.lat, lng: item.lng, visits: [] };
+                    // ★ ここで column の情報もグループ化して保存
+                    groupedShops[item.name] = { name: item.name, lat: item.lat, lng: item.lng, visits: [], column: null };
+                }
+                // もしコラムURLがあれば上書き登録
+                if (item.column) {
+                    groupedShops[item.name].column = item.column;
                 }
                 groupedShops[item.name].visits.push({ date: item.date, drink: item.drink, price: item.price, comment: item.comment });
                 if(item.price && !isNaN(item.price)) { totalMoney += Number(item.price); }
@@ -307,7 +327,6 @@
                 return latestA - latestB; 
             });
 
-            // ★ 修正箇所：forEach の引数に index を追加
             data.forEach((shop, index) => {
                 shop.visits.sort((a, b) => new Date(b.date) - new Date(a.date));
                 var visitCount = shop.visits.length;
@@ -323,13 +342,25 @@
 
                 var customIcon = L.divIcon({ html: pinSvg, className: '', iconSize: [30, 45], iconAnchor: [15, 45], popupAnchor: [0, -45] });
 
-                var popupContent = '<b style="font-size:15px;">' + shop.name + '</b><div class="popup-history">';
+                // ★ ポップアップのタイトル部分の生成（コラムがあればリンク化＆アイコン追加）
+                var titleHtml = '';
+                if (shop.column) {
+                    titleHtml = `<a href="${shop.column}" style="color: #333; text-decoration: underline; font-size: 15px;"><b>${shop.name}</b></a> <span style="font-size: 13px;" title="コラムあり">📖</span>`;
+                } else {
+                    titleHtml = `<b style="font-size:15px;">${shop.name}</b>`;
+                }
+
+                var popupContent = titleHtml + '<div class="popup-history">';
                 shop.visits.forEach(visit => {
                     popupContent += '<div class="history-item"><span style="color: #888; font-size: 12px;">📅 ' + visit.date + '</span><br>☕️ ' + visit.drink + '（¥' + visit.price + '）<br><small style="color: #555;">' + visit.comment + '</small></div>';
                 });
                 popupContent += '</div>';
+
+                // ★ コラムへの導線ボタンをポップアップの下部に追加
+                if (shop.column) {
+                    popupContent += `<div style="margin-top: 15px; text-align: center;"><a href="${shop.column}" class="column-link-btn">📖 コラムを読む</a></div>`;
+                }
                 
-                // ★ 修正箇所：zIndexOffset に index * 1000 を指定し、新しいピンを強制的に手前に持ってくる
                 var marker = L.marker([shop.lat, shop.lng], { 
                     icon: customIcon,
                     zIndexOffset: index * 1000 
@@ -340,7 +371,10 @@
                 var listItem = document.createElement('div');
                 listItem.className = 'list-item'; 
                 var badgeHtml = visitCount > 1 ? '<span class="badge">' + visitCount + '回</span>' : '';
-                listItem.innerHTML = '<div class="list-name">' + shop.name + badgeHtml + '</div><div class="list-date">最終訪問: ' + latestVisit.date + '</div>';
+                
+                // ★ リスト用のコラムアイコン表示
+                var listColumnIcon = shop.column ? '<span style="font-size: 13px;" title="コラムあり">📖</span>' : '';
+                listItem.innerHTML = '<div class="list-name">' + shop.name + listColumnIcon + badgeHtml + '</div><div class="list-date">最終訪問: ' + latestVisit.date + '</div>';
 
                 listItem.addEventListener('click', function() {
                     map.flyTo([shop.lat, shop.lng], 14, { duration: 1.5 });
