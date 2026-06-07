@@ -559,7 +559,8 @@
     "date": "2025-05-05",
     "drink": "エチオピア",
     "price": null,
-    "comment": ""
+    "comment": "",
+    "column" : "ShopColumn/HORAIYA.html"
   },
   {
     "name": "Light Up Coffee（下北沢）",
@@ -622,7 +623,8 @@
     "date": "2025-06-08",
     "drink": "",
     "price": null,
-    "comment": ""
+    "comment": "",
+    "column" : "ShopColumn/donguriya.html"
   },
   {
     "name": "CONZEN COFFEE（町田）",
@@ -667,7 +669,8 @@
     "date": "2025-07-06",
     "drink": "",
     "price": null,
-    "comment": ""
+    "comment": "",
+    "column" : "ShopColumn/bridgecoffee&icecream.html"
   },
   {
     "name": "Light Up Coffee（下北沢）",
@@ -730,7 +733,8 @@
     "date": "2025-07-20",
     "drink": "",
     "price":  null,
-    "comment": ""
+    "comment": "",
+    "column": "ShopColumn/meikyokukissalion.html"
   },
   {
     "name": "BLUE SIX COFFEE（国立競技場）",
