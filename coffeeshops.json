@@ -549,7 +549,8 @@
     "date": "2025-05-04",
     "drink": "",
     "price": null,
-    "comment": ""
+    "comment": "",
+    "column" : "ShopColumn/NITOcoffee&beer.html"
   },
   {
     "name": "HORAIYA（原宿）",
