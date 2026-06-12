@@ -1,5 +1,15 @@
 [
   {
+    "name": "ひつじ珈琲 西那須野店（西那須野）",
+    "lat": 36.89435721252989, 
+    "lng": 139.97481927943494,
+    "date": "2026-06-12",
+    "drink": "コロンビア サルサ農園パカマラ",
+    "price": 700,
+    "comment": "",
+    "column" : "ShopColumn/hitsujicoffee.html"
+  },
+  {
     "name": "ISLAND STONE COFFEE ROASTERS（宇都宮）",
     "lat": 36.55949726070263, 
     "lng": 139.8998466596615,
@@ -715,7 +725,8 @@
     "date": "2026-06-05",
     "drink": "ブラジル エドゥアルド カンポ",
     "price": 605,
-    "comment": "イエローブルボンのパルプドナチュラル製法。外観から内装まで全部好き。"
+    "comment": "",
+    "column": "ShopColumn/bellcoffeeroasters.html"
   },
   {
     "name": "COFFEE AND DONUTS FIVE（佐野）",
@@ -724,7 +735,8 @@
     "date": "2026-06-05",
     "drink": "エチオピア ゴマ",
     "price": 660,
-    "comment": "BELL COFFEE ROASTERSの姉妹店。"
+    "comment": "BELL COFFEE ROASTERSの姉妹店。",
+    "column": "ShopColumn/bellcoffeeroasters.html"  
   },
   {
     "name": "中珈琲 ataru coffee resort（町田）",

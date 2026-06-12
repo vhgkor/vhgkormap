@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>ShopColumn | 偏愛コーヒー図鑑</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Zen Kaku Gothic New', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #fcfcfd; /* 読書に集中できる、少し温かみのある白 */
+            color: #333;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 画面上部の戻るナビゲーション */
+        .top-nav {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            padding: calc(15px + env(safe-area-inset-top)) 20px 15px;
+            background: linear-gradient(to bottom, rgba(252,252,253,1) 0%, rgba(252,252,253,0) 100%);
+            z-index: 1000;
+            box-sizing: border-box;
+            display: flex;      /* ★ 追加：ボタンを横に並べる */
+            gap: 12px;          /* ★ 追加：ボタンとボタンの隙間 */
+            flex-wrap: wrap;    /* ★ 追加：画面が狭い場合は折り返す */
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #8B4513;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px 16px;
+            border-radius: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+        .back-btn:hover { transform: translateX(-3px); }
+
+        /* コラムのヘッダー（表紙） */
+        .article-hero {
+            position: relative;
+            width: 100%;
+            height: 50vh;
+            background-image: url('../ASATTECOFFEE.JPG');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* 記事のメインコンテナ（中央寄せで読みやすい幅に制限） */
+        .article-container {
+            max-width: 680px;
+            margin: -60px auto 0; /* 写真に少し被せるように配置 */
+            background: #ffffff;
+            border-radius: 24px 24px 0 0;
+            padding: 50px 40px 80px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.05);
+            box-sizing: border-box;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .article-date {
+            font-family: 'Cormorant Garamond', serif;
+            color: #888;
+            font-size: 16px;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .article-title {
+            margin: 0 0 15px 0;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            line-height: 1.4;
+        }
+
+        .article-tags {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            font-size: 11px;
+            font-weight: 700;
+            color: #8B4513;
+            background: rgba(139, 69, 19, 0.1);
+            padding: 4px 12px;
+            border-radius: 12px;
+            letter-spacing: 1px;
+        }
+
+        /* 記事の本文 */
+        .article-body p {
+            margin-bottom: 28px;
+            font-size: 15px;
+            color: #444;
+            text-align: justify;
+        }
+
+        .article-body h3 {
+            font-size: 20px;
+            border-bottom: 2px solid #f2f2f7;
+            padding-bottom: 8px;
+            margin: 40px 0 20px 0;
+            color: #222;
+        }
+
+        /* 本文中の写真 */
+        .article-image {
+            width: 100%;
+            border-radius: 12px;
+            margin: 10px 0 30px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .image-caption {
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+            margin-top: -20px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .article-hero { height: 40vh; }
+            .article-container { padding: 40px 25px 60px; margin-top: -40px; border-radius: 20px 20px 0 0; }
+            .article-title { font-size: 24px; }
+            .article-body p { font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="top-nav">
+        <a href="../columns.html" class="back-btn" title="コラム一覧へ">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z" fill="#8B4513"/>
+            </svg>
+            コラム一覧
+        </a>
+
+        <a href="../coffee.html" class="back-btn" title="マップへ戻る">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" fill="#8B4513"/>
+            </svg>
+            マップ
+        </a>
+    </nav>
+
+    <div class="article-hero"></div>
+
+
+
+
+    <!-- 店ごとの修正が必要なのはここから -->
+
+
+
+
+    <main class="article-container">
+        <header class="article-header">
+            <!-- <div class="article-date">April 5, 2026</div> -->
+
+            <!-- ①店の名前 -->
+            <h1 class="article-title"> BELL COFFEE ROASTERS<br>（佐野）</h1>
+            <div class="article-tags">
+                <!-- ②喫茶店かロースタリーか -->
+                <span class="tag">ROASTERY</span> 
+                <!-- ③都道府県名 -->
+                <span class="tag">栃木</span>
+            </div>
+        </header>
+        
+        <!-- ④コラム本文 -->
+        <div class="article-body">
+            <p>
+                栃木コーヒー漫遊記、第一弾。
+                「栃木コーヒー漫遊記」とは、仕事で栃木に数ヶ月滞在することになったぼくが、
+                滞在中に訪れた栃木県内のコーヒーショップを紹介するコラムである。
+                第一弾は、佐野市にある〈BELL COFFEE ROASTERS〉。
+                佐野市は、栃木県の南西部に位置する都市で、佐野ラーメンやアウトレットモールで有名だ。
+                宿泊していた宇都宮市内のホテルから東武線とJR線を乗り継いで約1時間。
+                佐野駅で降り、駅前の商店街を抜けさらに10分ほど歩くと、住宅街の中に〈BELL COFFEE ROASTERS〉は現れる。
+                珈琲屋の外観オタクでもあるぼくは、軒先テントが視界に入っただけでテンションが上がった。
+                伺う前にInstagramで外観を見ていたのだが、実物は写真以上に魅力的だった。
+                この店構えを見るためだけでも佐野まで来た価値があると思えた。
+                浅煎り中心のラインナップとはいえ、扱っている豆の種類は多い。
+                バリスタさんのおすすめである「ブラジル エドゥアルド カンポ」を選んだ。
+                イエローブルボンのパルプドナチュラル製法で、ビーンズカードには「マンゴー」の文字が躍っていた。
+                口に含むと、マンゴーのようなトロピカルな甘さもありつつ、柑橘系の酸味が感じられる。
+                バリスタさん曰く、佐野駅から徒歩5分ほどのところにある姉妹店〈COFFEE AND DONUTS FIVE〉があるという。
+                「せっかくコーヒー目当てで佐野に来たのなら」と思い、そちらにも足を運ぶことにした。
+                帰りの電車まで時間があまりなかったため、テイクアウトでエチオピア ゴマとコーヒードーナツを注文した。
+            </p>
+
+            <!-- ⑤写真を挿入する場合 -->
+            <!-- <img src="https://images.unsplash.com/photo-1495474472204-51ea99cafc44?q=80&w=800&auto=format&fit=crop" alt="Coffee Details" class="article-image">
+            <div class="image-caption">光の入る明るい店内と、美しい抽出器具。</div> -->
+        </div>
+    </main>
+
+</body>
+</html>
+
+<!-- このページの編集が済んだら、次はcoffeeshops.jsonの各ショップ部分に "column : "" を追加すること！-->
