@@ -1,13 +1,13 @@
 [
   {
-    "name": "Light Up Coffee（吉祥寺）",
-    "lat": 35.705414675032976, 
-    "lng": 139.57249990468785,
+    "name": "Light Up Coffee（下北沢）",
+    "lat": 35.65819,
+    "lng": 139.66257,
     "date": "2026-07-20",
     "drink": "ボリビア センダ・サルバヘ",
     "price": 650,
     "comment": "",
-    "column" : "ShopColumn/lightup_kitijyoji.html"
+    "column" : "ShopColumn/lightup_shimokita.html"
   },
   {
     "name": "ONIBUS COFFEE JIYUGAOKA（自由が丘）",
