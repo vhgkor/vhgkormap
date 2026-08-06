@@ -20,16 +20,6 @@
     "column" : ""
   },
   {
-    "name": "ONIBUS COFFEE JIYUGAOKA（自由が丘）",
-    "lat": 35.60852611943163, 
-    "lng": 139.6718310338948,
-    "date": "2026-08-01",
-    "drink": "エチオピア イルガチェフェ",
-    "price": 550,
-    "comment": "",
-    "column" : ""
-  },
-  {
     "name": "SESSION COFFEE BASE（茅ヶ崎）",
     "lat": 35.32161900229284, 
     "lng": 139.41527115610717, 
