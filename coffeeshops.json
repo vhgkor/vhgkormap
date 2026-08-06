@@ -1,5 +1,45 @@
 [
   {
+    "name": "Light Up Coffee（吉祥寺）",
+    "lat": 35.705414675032976, 
+    "lng": 139.57249990468785,
+    "date": "2026-07-20",
+    "drink": "ボリビア センダ・サルバヘ",
+    "price": 650,
+    "comment": "",
+    "column" : "ShopColumn/lightup_kitijyoji.html"
+  },
+  {
+    "name": "ONIBUS COFFEE JIYUGAOKA（自由が丘）",
+    "lat": 35.60852611943163, 
+    "lng": 139.6718310338948,
+    "date": "2026-08-01",
+    "drink": "ブラジル リオ・ブリジャンテ",
+    "price": 550,
+    "comment": "",
+    "column" : ""
+  },
+  {
+    "name": "ONIBUS COFFEE JIYUGAOKA（自由が丘）",
+    "lat": 35.60852611943163, 
+    "lng": 139.6718310338948,
+    "date": "2026-08-01",
+    "drink": "エチオピア イルガチェフェ",
+    "price": 550,
+    "comment": "",
+    "column" : ""
+  },
+  {
+    "name": "SESSION COFFEE BASE（茅ヶ崎）",
+    "lat": 35.32161900229284, 
+    "lng": 139.41527115610717, 
+    "date": "2026-08-02",
+    "drink": "（コールドブリュー）",
+    "price": 550,
+    "comment": "",
+    "column" : ""
+  },
+  {
     "name": "TERA COFFEE（妙蓮寺）",
     "lat": 35.50056364485377, 
     "lng": 139.63326871387088,
@@ -45,7 +85,6 @@
     "price": 300,
     "comment": "",
     "column" : "ShopColumn/lightup_kitijyoji.html"
-
   },
   {
     "name": "Light Up Coffee（下北沢）",
